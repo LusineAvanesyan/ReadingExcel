@@ -10,6 +10,8 @@ import openpyxl
 file = openpyxl.load_workbook("inventory.xlsx")
 
 products = file["Sheet1"]
+
+# Empty map, key-value pairs
 company_name_count = {}
 
 for product_row in range(2, products.max_row + 1):
@@ -17,9 +19,11 @@ for product_row in range(2, products.max_row + 1):
     print(companyName)
 
     if companyName in company_name_count:
+        # for existing companyNames in the map
         count = company_name_count[companyName]
         company_name_count[companyName] = count + 1 
     else:
+        # for new companyNames in the map
         company_name_count[companyName] = 1
 
 
